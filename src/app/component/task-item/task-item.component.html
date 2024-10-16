@@ -1,0 +1,8 @@
+<div class="card " [class.completed]="task.completed">
+  <div class="contain">
+    <h3>{{ task.title }}</h3>
+    <p>Status: {{ task.completed ? 'Completed' : 'Pending' }}</p>
+    <input type="checkbox" (click)="onToggle()">
+  </div>
+</div>
+<button class="" (click)="delete()">delete</button>

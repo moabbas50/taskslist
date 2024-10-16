@@ -1,0 +1,17 @@
+<div class="section">
+  <div class="add">
+    <h3>Add new Task</h3>
+    <form action="" [formGroup]="tasksform">
+      <label for="title"></label>
+      <input  formControlName="title" class="form-control" type="text" value="" name="title">
+      <p *ngIf="title?.touched && title?.invalid" class="alert alert-danger"> please enter valid Name</p>
+      <input formControlName="completed" class="form-control" type="checkbox" [(ngModel)]="complete" name="completed" hidden>
+      <button (click)="submit()" class="submit">Add</button>
+    </form>
+  </div>
+  <div class="tasks">
+    <div class="containr" *ngFor="let task of tasks">
+      <app-task-item [task]="task" (toggle)="toggleCompletion(task)" (deleteitem)="deleteTask(task.id)"></app-task-item>
+    </div>
+  </div>
+</div>
